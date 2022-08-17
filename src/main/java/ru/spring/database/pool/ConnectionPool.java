@@ -14,4 +14,11 @@ public class ConnectionPool {
     List<Object> args;
     Map<String, Object> properties;
 
+    private void init() {
+        System.out.println("Init connection pool");
+    }
+
+    private void destroy() {
+        System.out.println("Clean connection pool");
+    }
 }

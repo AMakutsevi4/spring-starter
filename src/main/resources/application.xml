@@ -10,7 +10,10 @@
         <constructor-arg ref="pool1"/>
     </bean>
 
-    <bean id="pool1" name="p1, p2, p3" class="ru.spring.database.pool.ConnectionPool" scope="prototype">
+    <bean id="pool1" name="p1, p2, p3" class="ru.spring.database.pool.ConnectionPool"
+          init-method="init"
+          destroy-method="destroy"
+          scope="singleton">
         <constructor-arg name="username" type="java.lang.String" ref="driver"/>
         <constructor-arg index="1" type="java.lang.Integer" value="10"/>
         <constructor-arg name="properties" type="java.util.Map">
