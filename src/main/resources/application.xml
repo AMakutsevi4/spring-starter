@@ -9,6 +9,7 @@
 
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
+    <bean class="ru.spring.bpp.InjectBeanPostProcessor"/>
     <context:annotation-config/>
     <context:property-placeholder location="application.properties"/>
 
@@ -18,9 +19,7 @@
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
-    <bean name="companyRepository" class="ru.spring.database.repository.CompanyRepository" factory-method="of">
-        <constructor-arg ref="pool1"/>
-    </bean>
+    <bean name="companyRepository" class="ru.spring.database.repository.CompanyRepository"/>
 
     <bean id="pool1" name="p1, p2, p3" class="ru.spring.database.pool.ConnectionPool">
         <constructor-arg name="username" type="java.lang.String" value="${db.username}"/>

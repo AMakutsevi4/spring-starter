@@ -1,18 +1,13 @@
 package ru.spring.database.repository;
 
 import lombok.Value;
+import ru.spring.bpp.InjectBean;
 import ru.spring.database.pool.ConnectionPool;
 
 @Value
 public class CompanyRepository {
 
+    @InjectBean
     ConnectionPool connectionPool;
 
-    public CompanyRepository(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
-    }
-
-    public static CompanyRepository of(ConnectionPool connectionPool) {
-        return new CompanyRepository(connectionPool);
-    }
 }
