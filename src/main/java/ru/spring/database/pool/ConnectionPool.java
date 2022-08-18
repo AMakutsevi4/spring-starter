@@ -1,16 +1,17 @@
 package ru.spring.database.pool;
 
 
-import lombok.Data;
-import lombok.Value;
+import lombok.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 import java.util.Map;
 
-@Data
-@Value
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ConnectionPool {
     String username;
     Integer poolSize;
