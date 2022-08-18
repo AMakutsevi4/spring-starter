@@ -9,6 +9,8 @@
 
     <context:property-placeholder location="application.properties"/>
 
+    <bean class="ru.spring.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="ru.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
