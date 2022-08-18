@@ -15,6 +15,8 @@
 
     <bean class="ru.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="ru.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+    <bean class="ru.spring.bpp.TransactionBeanPostProcessor"/>
+    <bean class="ru.spring.bpp.AuditingBeanPostProcessor"/>
 
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
