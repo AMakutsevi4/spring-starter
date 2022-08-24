@@ -1,9 +1,8 @@
 package ru.spring.database.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 import ru.spring.bpp.Auditing;
-import ru.spring.bpp.InjectBean;
 import ru.spring.bpp.Transaction;
 import ru.spring.database.pool.ConnectionPool;
 import ru.spring.entity.Company;
@@ -12,13 +11,13 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor
 @Transaction
+@Repository
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    /* @Qualifier("pool1") */
     ConnectionPool connectionPool;
-    @Autowired
     List<ConnectionPool> pools;
 
     @PostConstruct

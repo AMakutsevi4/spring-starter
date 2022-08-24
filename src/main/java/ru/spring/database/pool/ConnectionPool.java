@@ -1,13 +1,16 @@
 package ru.spring.database.pool;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.util.List;
-import java.util.Map;
 
+@Component("pool1")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,8 +18,6 @@ import java.util.Map;
 public class ConnectionPool {
     String username;
     Integer poolSize;
-    List<Object> args;
-    Map<String, Object> properties;
 
     @PostConstruct
     private void init() {
