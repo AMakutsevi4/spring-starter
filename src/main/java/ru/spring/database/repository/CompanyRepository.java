@@ -1,6 +1,8 @@
 package ru.spring.database.repository;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import ru.spring.bpp.Auditing;
 import ru.spring.bpp.Transaction;
@@ -11,6 +13,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
+@Scope(BeanDefinition.SCOPE_PROTOTYPE)
 @AllArgsConstructor
 @Transaction
 @Repository
