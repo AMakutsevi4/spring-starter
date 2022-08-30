@@ -16,7 +16,7 @@
         <context:include-filter type="assignable" expression="ru.spring.database.repository.CrudRepository"/>
         <context:include-filter type="regex" expression="com\..+Repository"/>
     </context:component-scan>
-    <context:property-placeholder location="application.properties"/>
+<!--    <context:property-placeholder location="application.properties"/>-->
 
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
