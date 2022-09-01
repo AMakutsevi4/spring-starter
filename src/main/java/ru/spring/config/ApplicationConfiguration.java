@@ -12,7 +12,7 @@ import ru.web.config.WebConfiguration;
 
 /*@ImportResource("classpath:application.hml")*/
 @Import(WebConfiguration.class)
-@Configuration
+@Configuration(proxyBeanMethods = true)
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "ru.spring",
         useDefaultFilters = false,
@@ -29,8 +29,21 @@ public class ApplicationConfiguration {
         return new ConnectionPool(username, 20);
     }
 
+    @Bean()
+    public ConnectionPool pool3() {
+        return new ConnectionPool("test-pool", 25);
+    }
+
     @Bean
     public UserRepository userRepository2(ConnectionPool pool2) {
         return new UserRepository(pool2);
+    }
+
+    @Bean
+    public UserRepository userRepository3() {
+        var connectionPool = pool3();
+        var connectionPool1 = pool3();
+        var connectionPool2 = pool3();
+        return new UserRepository(pool3());
     }
 }
